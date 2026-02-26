@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Mobile IDE</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      html {
+        height: 100%;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+      }
+      
+      body {
+        height: 100%;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+        background: #0d1117;
+        color: #e6edf3;
+      }
+      
+      #root {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        padding-top: env(safe-area-inset-top);
+      }
+
+      /* Scrollable areas */
+      .scrollable {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+      }
+
+      /* CodeMirror / Sandpack scrolling fix */
+      .cm-editor {
+        height: 100% !important;
+        font-size: 12px !important;
+      }
+
+      .cm-content, .cm-line {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+      }
+
+      /* Smaller line numbers */
+      .cm-gutters {
+        font-size: 10px !important;
+        min-width: 28px !important;
+      }
+      .cm-lineNumbers .cm-gutterElement {
+        font-size: 10px !important;
+        line-height: 1.5 !important;
+        padding: 0 2px 0 4px !important;
+        min-width: 20px !important;
+      }
+      
+      .cm-scroller {
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
+        touch-action: pan-y !important;
+      }
+      
+      .sp-code-editor {
+        height: 100% !important;
+        overflow: hidden !important;
+      }
+      
+      .sp-wrapper {
+        height: 100% !important;
+      }
+      
+      .sp-layout {
+        height: 100% !important;
+        border: none !important;
+        background: #0d1117 !important;
+      }
+      
+      .sp-stack {
+        height: 100% !important;
+      }
+      
+      .sp-editor {
+        height: 100% !important;
+        overflow: hidden !important;
+      }
+      
+      /* Preview fixes */
+      .sp-preview-container {
+        height: 100% !important;
+        background: white !important;
+      }
+      
+      .sp-preview-iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+      }
+      
+      .sp-preview-actions {
+        background: #161b22 !important;
+        border-top: 1px solid #30363d !important;
+      }
+      
+      /* File explorer scrolling */
+      .sp-file-explorer {
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* Hide scrollbars but keep functionality */
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      
+      /* Prevent text selection in UI */
+      button, [role="button"] {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

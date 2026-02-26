@@ -1,0 +1,7 @@
+{
+  "name": "icode-node-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "description": "Node.js runtime for iCode mobile IDE"
+}
